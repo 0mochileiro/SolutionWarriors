@@ -1,0 +1,103 @@
+﻿@model SolutionWarriors.UI.Models.UserModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="row justify-content-center mt-5">
+
+    <div class="col-sm-10 text-center">
+
+        <h2>@Html.DisplayFor(modelItem => Model.UserNickname) - Details</h2>
+
+        <p>Return to the user list <a asp-controller="User" asp-action="UserList">click here</a>.</p>
+
+    </div>
+
+    <div class="col-sm-8 text-center mt-4">
+
+        <div class="table-responsive table-responsive shadow-sm rounded mb-1">
+            <table class="table table-hover m-0">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">User name</th>
+                        <th scope="col">Nickname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Registration date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td id="User-UserDetails-Name">
+                            @Html.DisplayFor(modelItem => Model.UserName)
+                        </td>
+
+                        <td id="User-UserDetails-Nickname">
+                            @Html.DisplayFor(modelItem => Model.UserNickname)
+                        </td>
+
+                        <td id="User-UserDetails-Email">
+                            @Html.DisplayFor(modelItem => Model.UserEmail)
+                        </td>
+
+                        <td id="User-UserDetails-RegisterDate">
+                            @Html.DisplayFor(modelItem => Model.UserRegisterDate)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="col-sm-8 mb-5">
+
+        <form asp-action="UpdateUser">
+
+            <div class="form-row">
+
+                <input type="hidden" asp-for="UserId" />
+
+                <div class="col-sm-6 mt-2">
+                    <input asp-for="UserName" type="text" id="User-UserDetails-InputName" class="form-control" placeholder="Bilbo Baggins" required />
+                    <small class="form-text text-primary ml-1">Insert your name</small>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <input asp-for="UserNickname" type="text" id="User-UserDetails-InputNickname" class="form-control" placeholder="Bilbo.Baggins" required />
+                    <small class="form-text text-primary ml-1">Insert your nickname.</small>
+                </div>
+
+                <div class="col-sm-12 mt-2">
+                    <input asp-for="UserEmail" type="email" id="User-UserDetails-InputEmail" class="form-control" placeholder="bilbo.baggins@email.com" required />
+                    <small class="form-text text-primary ml-1">Insert your email.</small>
+
+                </div>
+
+                <div class="col-sm-12">
+
+                    <a id="User-UserDetails-BtnReset" class="btn btn-primary btn-sm btn-block text-white mt-2">
+                        <i class="fas fa-history"></i> Reset changes
+                    </a>
+
+                    <button type="submit" class="btn btn-dark btn-sm btn-block mt-2">
+                        <i class="fas fa-save"></i> Save changes
+                    </button>
+
+                    <a asp-action="DeleteUser" asp-route-id="@Model.UserId" id="User-UserDetails-BtnDelet" class="btn btn-danger btn-sm btn-block text-white mt-2">
+                        <i class="fas fa-trash-alt"></i> Delete user
+                    </a>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>

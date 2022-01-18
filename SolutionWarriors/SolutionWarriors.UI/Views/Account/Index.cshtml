@@ -1,0 +1,54 @@
+﻿@model SolutionWarriors.UI.Models.AccountModel
+
+@{
+    ViewData["Title"] = "Warriors of Intelligence - Login";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<section class="row justify-content-center">
+
+    <div class="col-sm-4 pt-4">
+
+        <form asp-action="Index" class="mt-5">
+
+            <div class="d-flex justify-content-center">
+                <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves" width="250" />
+            </div>
+
+            <h1 class="text-center font_title mb-2">Warriors of Intelligence</h1>
+
+            <div class="form-row text-center">
+
+                <div class="col-12 mb-2">
+                    <input asp-for="UserEmail" type="email" class="form-control form-control" placeholder="name@example.com" required>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <input asp-for="UserPassword" type="password" class="form-control form-control" id="floatingInput" placeholder="password" required>
+                </div>
+
+                <div class="col-12 mb-2">
+                    <button class="btn btn-dark btn-block" type="submit">Sign in</button>
+                </div>
+
+            </div>
+
+            @if (ViewBag.Login != null)
+            {
+                <div class="alert alert-danger text-center" role="alert">
+                    @ViewBag.Login
+                </div>
+            }
+
+        </form>
+
+        <div class="text-center">
+            <p class="">Return to <a asp-controller="Home" asp-action="Index">home page</a>.</p>
+        </div>
+
+    </div>
+
+    <script>
+    </script>
+
+</section>

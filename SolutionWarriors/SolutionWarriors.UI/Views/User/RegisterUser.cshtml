@@ -1,0 +1,74 @@
+﻿@model SolutionWarriors.UI.Models.AccountModel
+
+
+@{
+    ViewData["Title"] = "Warriors of Intelligence - Register user";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="row justify-content-center mt-5">
+
+    <div class="col-sm-10 text-center">
+
+        <h1>Warriors of Intelligence</h1>
+
+        <h2>Create a new user</h2>
+
+        <p>Return to the user list <a asp-controller="Account" asp-action="Index">click here</a>.</p>
+
+    </div>
+
+    <div class="col-sm-8 mt-2 mb-5">
+
+        <form asp-action="RegisterUser">
+
+            <div class="form-row">
+
+                <div class="col-sm-6 mt-2">
+                    <input asp-for="UserName" type="text" id="User-UserRegister-InputName" class="form-control" placeholder="Bilbo Baggins" required />
+                    <small class="form-text text-primary ml-1">Insert your name</small>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <input asp-for="UserNickname" type="text" id="User-UserRegister-InputNickname" class="form-control" placeholder="Bilbo.Baggins" required />
+                    <small class="form-text text-primary ml-1">Insert your nickname.</small>
+                </div>
+
+                <div class="col-sm-12 mt-2">
+                    <input asp-for="UserEmail" type="email" id="User-UserRegister-InputEmail" class="form-control" placeholder="bilbo.baggins@email.com" required />
+                    <small class="form-text text-primary ml-1">Insert your email.</small>
+
+                </div>
+
+                <div class="col-sm-12 mt-2">
+                    <input asp-for="UserPassword" type="password" id="User-UserRegister-InputPassword" class="form-control" placeholder="********" required />
+                    <small class="form-text text-primary ml-1">Password.</small>
+                </div>
+
+                <div class="col-sm-12 mt-2">
+                    <fieldset disabled>
+                        <input type="password" id="User-UserRegister-InputPasswordVerify" class="form-control" placeholder="********" required />
+                        <small id="User-UserRegister-SmallPasswordVerify" class="form-text ml-1">Confirm password.</small>
+                    </fieldset>
+                </div>
+
+                <div class="col-sm-12">
+                    <a id="User-UserRegister-BtnClean" class="btn btn-primary btn-sm btn-block text-white mt-2"><i class="fas fa-trash-alt"></i> Clean</a>
+                    <button type="submit" class="btn btn-dark btn-sm btn-block mt-2">
+                        <i class="fas fa-save"></i> Register
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

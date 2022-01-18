@@ -1,8 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Warriors of Intelligence";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="container">
+
+    <article class="rounded shadow text-center mt-5 p-4 p-lg-5 bg_img">
+
+        <div class="m-4 m-lg-5">
+
+            <h1 class="font_title_home">Warriors of</h1>
+
+            <h2 class="font_title_home">Intelligence</h2>
+
+            <a class="btn btn-dark btn-lg w-50" asp-controller="Home" asp-action="Index">Game</a>
+
+        </div>
+
+    </article>
+
+</section>

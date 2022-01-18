@@ -3,43 +3,89 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SolutionWarriors.UI</title>
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon/favicon.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SolutionWarriors.UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <header class="shadow-sm">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+
+            <a class="navbar-brand ml-5 font_default_header" asp-area="" asp-controller="Home" asp-action="Index">Warriors of Intelligence</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link font_default_a_header" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link font_default_a_header" asp-area="" asp-controller="Account" asp-action="Index">Login <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        
+                        <a class="nav-link dropdown-toggle font_default_a_header" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Game
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Play</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Guide</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Wiki</a>
+                        </div>
+
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle font_default_a_header" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Users
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="User" asp-action="UserList">Users List</a>
+                                <a class="dropdown-item" asp-controller="User" asp-action="RegisterUser">Create new user</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-danger font_default_a_header" asp-controller="Account" asp-action="Logout">Logout<span class="sr-only">(current)</span></a>
                         </li>
-                    </ul>
-                </div>
+                    }
+
+                </ul>
+
             </div>
+
         </nav>
+
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+    <main role="main" class="container-fluid">
+
+        @RenderBody()
+
+    </main>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - SolutionWarriors.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+        <div class="text-center">
+            <a href="https://github.com/0mochileiro/" target="_blank"><i class="fab fa-github"></i> Developed by - João Octavio T. Zambon Mantovani</a>
         </div>
+
     </footer>
+
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
