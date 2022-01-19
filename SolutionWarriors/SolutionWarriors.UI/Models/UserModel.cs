@@ -25,20 +25,28 @@ namespace SolutionWarriors.UI.Models
             }
         }
 
-        public bool VerifyUser(AccountModel login)
+        public UserAuthorized VerifyUser(AccountModel login)
         {
             if (string.IsNullOrEmpty(login.UserEmail) && string.IsNullOrEmpty(login.UserPassword))
-                throw new ArgumentNullException("User email or User password are equal to null.");
+                throw new ArgumentNullException("User email and User password are equal to null.");
 
             if (string.IsNullOrEmpty(login.UserPassword) || string.IsNullOrEmpty(login.UserEmail))
-                return false;
+                throw new ArgumentNullException("User email or User password are equal to null.");
 
             using (var context = new SolutionContext())
             {
                 var user = context.User
                     .FirstOrDefault(a => a.UserEmail == login.UserEmail);
 
-                return new Account().VerifyPasswordHash(login.UserPassword, user.UserPasswordHash, user.UserPasswordSalt);
+                if (user == null)
+                    return UserAuthorized.NotFound;
+
+                var userAuthorized = new Account().VerifyPasswordHash(login.UserPassword, user.UserPasswordHash, user.UserPasswordSalt);
+
+                if (!userAuthorized)
+                    return UserAuthorized.Unauthorized;
+
+                return UserAuthorized.Authorized;
             }
         }
 

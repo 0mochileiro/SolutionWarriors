@@ -1,8 +1,4 @@
 ﻿using SolutionWarriors.Engine.Entitys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SolutionWarriors.UI.Models
 {
@@ -11,6 +7,8 @@ namespace SolutionWarriors.UI.Models
         public int UserId { get; set; }
 
         public UserAcessLevel UserAcessLevel { get; set; }
+
+        public UserAuthorized UserAuthorized { get; set; }
 
         public string UserName { get; set; }
 

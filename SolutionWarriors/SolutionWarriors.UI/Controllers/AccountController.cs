@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SolutionWarriors.Engine.Entitys;
 using SolutionWarriors.UI.Models;
+using System;
 using System.Security.Claims;
 
 namespace SolutionWarriors.UI.Controllers
@@ -24,31 +26,50 @@ namespace SolutionWarriors.UI.Controllers
         public ActionResult Index(AccountModel model)
         {
             if (string.IsNullOrEmpty(model.UserEmail) && string.IsNullOrEmpty(model.UserPassword))
-                return View("Error");
+                return BadRequest();
 
-            if (new UserModel().VerifyUser(model))
+            try
             {
-                var credentials = new UserModel().GetCredentials(model.UserEmail);
+                var userAuthorized = new UserModel().VerifyUser(model);
 
-                var identity = new ClaimsIdentity(new[]
+                if (userAuthorized == UserAuthorized.Authorized)
                 {
+                    var credentials = new UserModel().GetCredentials(model.UserEmail);
+
+                    var identity = new ClaimsIdentity(new[]
+                    {
                     new Claim(ClaimTypes.Name, credentials.userNickname),
                     new Claim(ClaimTypes.Email, credentials.userEmail),
                     new Claim(ClaimTypes.Role, "Admin")
+                    }, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                }, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity); ;
 
-                var principal = new ClaimsPrincipal(identity); ;
+                    var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                    return RedirectToAction("Index", "User");
+                }
 
-                return RedirectToAction("Index", "User");
+                else if (userAuthorized == UserAuthorized.Unauthorized)
+                {
+                    ViewBag.Login = "E-mail ou senha incorretos!";
+
+                    return View();
+                }
+
+                else
+                {
+                    ViewBag.Login = "Usuário não encontrado";
+
+                    return View();
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                ViewBag.Login = "E-mail ou senha incorretos!";
+                // Add exception handling with logs;
 
-                return View();
+                return BadRequest();
             }
         }
 

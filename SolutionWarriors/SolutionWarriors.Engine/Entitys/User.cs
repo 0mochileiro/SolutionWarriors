@@ -21,4 +21,11 @@ namespace SolutionWarriors.Engine.Entitys
         Administrator = 1,
         Root = 2
     }
+
+    public enum UserAuthorized
+    {
+        Authorized = 0,
+        Unauthorized = 1,
+        NotFound = 2
+    }
 }
