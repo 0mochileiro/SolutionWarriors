@@ -13,7 +13,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
 
-            <a class="navbar-brand ml-5 font_default_header" asp-area="" asp-controller="Home" asp-action="Index">Warriors of Intelligence</a>
+            <a class="navbar-brand ml-5 font_default_header" asp-area="" asp-controller="Home" asp-action="Index">Guerreiros da Inteligência</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,13 +34,13 @@
                     <li class="nav-item dropdown">
                         
                         <a class="nav-link dropdown-toggle font_default_a_header" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Game
+                            Jogar
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Play</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Guide</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Wiki</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Jogar</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Como Jogar</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Sobre o jogo</a>
                         </div>
 
                     </li>
@@ -49,12 +49,13 @@
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle font_default_a_header" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Users
+                                Administração
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="User" asp-action="UserList">Users List</a>
-                                <a class="dropdown-item" asp-controller="User" asp-action="RegisterUser">Create new user</a>
+                                <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Área exclusiva - @User.Identity.Name</a>
+                                <a class="dropdown-item" asp-controller="Manager" asp-action="UserList">Lista de Usuários</a>
+                                <a class="dropdown-item" asp-controller="Manager" asp-action="RegisterUser">Criar novo Usuário</a>
                             </div>
                         </li>
 

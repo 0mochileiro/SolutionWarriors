@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\Manager\" />
     <Folder Include="wwwroot\imgs\" />
   </ItemGroup>
 

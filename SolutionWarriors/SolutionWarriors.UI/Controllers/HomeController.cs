@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SolutionWarriors.UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ILogger<HomeController> _logger;
 

@@ -9,14 +9,14 @@ using System.Security.Claims;
 
 namespace SolutionWarriors.UI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : Microsoft.AspNetCore.Mvc.Controller
     {
         public ActionResult Index()
         {
             //Check if the user is logged in and redirects to index;
 
             if (User.Identity.IsAuthenticated)
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "Manager");
 
             return View();
         }
@@ -47,7 +47,7 @@ namespace SolutionWarriors.UI.Controllers
 
                     var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return RedirectToAction("Index", "User");
+                    return RedirectToAction("Index", "Manager");
                 }
 
                 else if (userAuthorized == UserAuthorized.Unauthorized)
@@ -59,7 +59,7 @@ namespace SolutionWarriors.UI.Controllers
 
                 else
                 {
-                    ViewBag.Login = "Usuário não encontrado";
+                    ViewBag.Login = "Usuário não encontrado!";
 
                     return View();
                 }

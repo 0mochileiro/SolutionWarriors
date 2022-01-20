@@ -5,7 +5,7 @@ using SolutionWarriors.UI.Models;
 namespace SolutionWarriors.UI.Controllers
 {
     [Authorize]
-    public class UserController : Controller
+    public class ManagerController : Controller
     {
         public ActionResult Index()
         {

@@ -24,8 +24,8 @@ namespace SolutionWarriors.Engine.Entitys
 
     public enum UserAuthorized
     {
-        Authorized = 0,
-        Unauthorized = 1,
+        Unauthorized = 0,
+        Authorized = 1,
         NotFound = 2
     }
 }
