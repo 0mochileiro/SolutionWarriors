@@ -50,6 +50,10 @@ body {
     font-family: 'Bebas Neue', cursive;
 }
 
+.font_default_black {
+    font-family: 'Bebas Neue', cursive;
+    color: #343a40;
+}
 /*Section HomePage*/
 .bg_img {
     background-image: url("../imgs/banner-baskalarte.jpg");
@@ -58,6 +62,15 @@ body {
     background-size: cover;
     height: 100%;
 }
+
+.bg_img_user_list {
+    background-image: url("../imgs/banner-baskalarte.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75%;
+}
+
 
 /*a.navbar-brand {
     white-space: normal;

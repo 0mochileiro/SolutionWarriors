@@ -1,32 +1,28 @@
 ﻿@model SolutionWarriors.UI.Models.UserModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = $"Guerreiros da Inteligência - {User.Identity.Name}";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <section class="row justify-content-center mt-5">
 
-    <div class="col-sm-10 text-center">
-
-        <h2>@Html.DisplayFor(modelItem => Model.UserNickname) - Details</h2>
-
-        <p>Return to the user list <a asp-controller="User" asp-action="UserList">click here</a>.</p>
-
+    <div class="col-sm-8 text-center">
+        <h1 class="font_default_black">Informações - @User.Identity.Name</h1>
     </div>
 
-    <div class="col-sm-8 text-center mt-4">
+    <div class="col-sm-8 text-center mt-2">
 
         <div class="table-responsive table-responsive shadow-sm rounded mb-1">
             <table class="table table-hover m-0">
 
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">User name</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Nickname</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Registration date</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Nível de Acesso</th>
                     </tr>
                 </thead>
 
@@ -45,7 +41,7 @@
                         </td>
 
                         <td id="User-UserDetails-RegisterDate">
-                            @Html.DisplayFor(modelItem => Model.UserRegisterDate)
+                            @Html.DisplayFor(modelItem => Model.UserAcessLevel)
                         </td>
                     </tr>
                 </tbody>
@@ -54,7 +50,7 @@
 
     </div>
 
-    <div class="col-sm-8 mb-5">
+    <div class="col-sm-8 mt-2 mb-5">
 
         <form asp-action="UpdateUser">
 
@@ -64,32 +60,38 @@
 
                 <div class="col-sm-6 mt-2">
                     <input asp-for="UserName" type="text" id="User-UserDetails-InputName" class="form-control" placeholder="Bilbo Baggins" required />
-                    <small class="form-text text-primary ml-1">Insert your name</small>
+                    <small class="form-text text-primary ml-1">Nome do usuário.</small>
                 </div>
 
                 <div class="col-sm-6 mt-2">
                     <input asp-for="UserNickname" type="text" id="User-UserDetails-InputNickname" class="form-control" placeholder="Bilbo.Baggins" required />
-                    <small class="form-text text-primary ml-1">Insert your nickname.</small>
+                    <small class="form-text text-primary ml-1">Apelido do usuário.</small>
                 </div>
 
                 <div class="col-sm-12 mt-2">
                     <input asp-for="UserEmail" type="email" id="User-UserDetails-InputEmail" class="form-control" placeholder="bilbo.baggins@email.com" required />
-                    <small class="form-text text-primary ml-1">Insert your email.</small>
+                    <small class="form-text text-primary ml-1">E-mail cadastrado.</small>
+                </div>
 
+                <div class="col-sm-12 mt-2">
+                    <p>
+                        <i class="text-primary fas fa-calendar-day"></i> Usuário criado em @Model.UserRegisterDate.ToString("dd/MM/yyyy").<br />
+                        <i class="text-primary fas fa-calendar-day"></i> Usuário atualizado em  @Model.UserLastUpdate.ToString("dd/MM/yyyy").
+                    </p>
                 </div>
 
                 <div class="col-sm-12">
 
-                    <a id="User-UserDetails-BtnReset" class="btn btn-primary btn-sm btn-block text-white mt-2">
-                        <i class="fas fa-history"></i> Reset changes
+                    <a id="User-UserDetails-BtnReset" class="btn btn-primary btn-sm btn-block text-white mt-1">
+                        <i class="fas fa-history"></i> Desfazer mudanças
                     </a>
 
                     <button type="submit" class="btn btn-dark btn-sm btn-block mt-2">
-                        <i class="fas fa-save"></i> Save changes
+                        <i class="fas fa-save"></i> Salvar alterações
                     </button>
 
                     <a asp-action="DeleteUser" asp-route-id="@Model.UserId" id="User-UserDetails-BtnDelet" class="btn btn-danger btn-sm btn-block text-white mt-2">
-                        <i class="fas fa-trash-alt"></i> Delete user
+                        <i class="fas fa-trash-alt"></i> Excluir usuário
                     </a>
 
                 </div>

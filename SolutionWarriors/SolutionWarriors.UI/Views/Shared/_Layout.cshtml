@@ -27,22 +27,15 @@
                         <a class="nav-link font_default_a_header" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
                     </li>
 
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item active">
+                            <a class="nav-link font_default_a_header" asp-area="" asp-controller="Account" asp-action="Index">Login <span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+
                     <li class="nav-item active">
-                        <a class="nav-link font_default_a_header" asp-area="" asp-controller="Account" asp-action="Index">Login <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        
-                        <a class="nav-link dropdown-toggle font_default_a_header" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Jogar
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Jogar</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Como Jogar</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Sobre o jogo</a>
-                        </div>
-
+                        <a class="nav-link font_default_a_header" asp-area="" asp-controller="Home" asp-action="Index">Jogar <span class="sr-only">(current)</span></a>
                     </li>
 
                     @if (User.Identity.IsAuthenticated)
@@ -53,7 +46,7 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Área exclusiva - @User.Identity.Name</a>
+                                <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Área exclusiva - Dashboard</a>
                                 <a class="dropdown-item" asp-controller="Manager" asp-action="UserList">Lista de Usuários</a>
                                 <a class="dropdown-item" asp-controller="Manager" asp-action="RegisterUser">Criar novo Usuário</a>
                             </div>

@@ -1,60 +1,55 @@
 ﻿@model IEnumerable<SolutionWarriors.UI.Models.UserModel>
 
 @{
-    ViewData["Title"] = "Warriors of Intelligence - User list";
+    ViewData["Title"] = "Guerreiros da Inteligênia - Lista de Usuários";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="row justify-content-center mt-5">
 
     <div class="col-sm-10 text-center mb-2">
-
-        <h1>Warriors of Intelligence</h1>
-        
-        <h2>User List</h2>
-        
-        <p class="mt-3">Return to the home page <a asp-controller="Home" asp-action="Index">click here</a>.</p>
-
+        <h1 class="font_default">Guerreiros da Inteligência</h1>
+        <h2 class="font_default">Lista de usuários</h2>
     </div>
 
     <div class="col-sm-8 text-center">
 
-        <div class="table-responsive table-responsive shadow-sm rounded mb-4">
-            <table class="table table-hover m-0">
+            <div class="table-responsive table-responsive shadow-sm rounded mb-4">
+                <table class="table table-hover m-0">
 
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">User name</th>
-                        <th scope="col">Nickname</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Options</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    @foreach (var user in Model)
-                     {
+                    <thead class="thead-dark">
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => user.UserName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => user.UserNickname)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => user.UserEmail)
-                            </td>
-                            <td>
-                                <a asp-action="UserDetails" asp-route-id="@user.UserId" class="h5"><i class="fas fa-user-cog"></i></a>
-                            </td>
+                            <th scope="col">User name</th>
+                            <th scope="col">Nickname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Options</th>
                         </tr>
-                     }
+                    </thead>
 
-                </tbody>
+                    <tbody>
 
-            </table>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => user.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => user.UserNickname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => user.UserEmail)
+                                </td>
+                                <td>
+                                    <a asp-action="UserDetails" asp-route-id="@user.UserId" class="h5"><i class="fas fa-user-cog"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
         </div>
-    </div>
 
 </section>

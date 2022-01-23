@@ -10,16 +10,11 @@
 <section class="row justify-content-center mt-5">
 
     <div class="col-sm-10 text-center">
-
-        <h1>Warriors of Intelligence</h1>
-
-        <h2>Create a new user</h2>
-
-        <p>Return to the user list <a asp-controller="Account" asp-action="Index">click here</a>.</p>
-
+        <h1 class="font_default">Guerreiros da Inteligência</h1>
+        <h2 class="font_default">Criar novo Usuário</h2>
     </div>
 
-    <div class="col-sm-8 mt-2 mb-5">
+    <div class="col-sm-8 mb-5">
 
         <form asp-action="RegisterUser">
 
@@ -27,36 +22,43 @@
 
                 <div class="col-sm-6 mt-2">
                     <input asp-for="UserName" type="text" id="User-UserRegister-InputName" class="form-control" placeholder="Bilbo Baggins" required />
-                    <small class="form-text text-primary ml-1">Insert your name</small>
+                    <small class="form-text text-primary ml-1">Insira seu nome</small>
                 </div>
 
                 <div class="col-sm-6 mt-2">
                     <input asp-for="UserNickname" type="text" id="User-UserRegister-InputNickname" class="form-control" placeholder="Bilbo.Baggins" required />
-                    <small class="form-text text-primary ml-1">Insert your nickname.</small>
+                    <small class="form-text text-primary ml-1">Insira seu apelido</small>
                 </div>
 
-                <div class="col-sm-12 mt-2">
+                <div class="col-sm-8 mt-2">
                     <input asp-for="UserEmail" type="email" id="User-UserRegister-InputEmail" class="form-control" placeholder="bilbo.baggins@email.com" required />
-                    <small class="form-text text-primary ml-1">Insert your email.</small>
+                    <small class="form-text text-primary ml-1">Insira seu e-mail</small>
+                </div>
 
+                <div class="col-sm-4 mt-2">
+                    <select asp-for="UserAcessLevel" id="User-UserRegister-InputEmail" class="form-control" required>
+                        <option value="0">Jogador</option>
+                        <option value="1">Administrador</option>
+                    </select>
+                    <small class="form-text text-primary ml-1">Selecione o nível de acesso do usuário</small>
                 </div>
 
                 <div class="col-sm-12 mt-2">
                     <input asp-for="UserPassword" type="password" id="User-UserRegister-InputPassword" class="form-control" placeholder="********" required />
-                    <small class="form-text text-primary ml-1">Password.</small>
+                    <small class="form-text text-primary ml-1">Insira uma senha</small>
                 </div>
 
                 <div class="col-sm-12 mt-2">
                     <fieldset disabled>
                         <input type="password" id="User-UserRegister-InputPasswordVerify" class="form-control" placeholder="********" required />
-                        <small id="User-UserRegister-SmallPasswordVerify" class="form-text ml-1">Confirm password.</small>
+                        <small id="User-UserRegister-SmallPasswordVerify" class="form-text text-secondary ml-1">Confirme sua senha</small>
                     </fieldset>
                 </div>
 
                 <div class="col-sm-12">
-                    <a id="User-UserRegister-BtnClean" class="btn btn-primary btn-sm btn-block text-white mt-2"><i class="fas fa-trash-alt"></i> Clean</a>
+                    <a id="User-UserRegister-BtnClean" class="btn btn-primary btn-sm btn-block text-white mt-2"><i class="fas fa-trash-alt"></i> Limpar campos</a>
                     <button type="submit" class="btn btn-dark btn-sm btn-block mt-2">
-                        <i class="fas fa-save"></i> Register
+                        <i class="fas fa-save"></i> Criar novo usuário
                     </button>
                 </div>
 
