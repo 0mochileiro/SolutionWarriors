@@ -6,7 +6,6 @@ html {
     position: relative;
     min-height: 100%;
 }
-
 body {
     margin-bottom: 60px;
 }
@@ -14,10 +13,9 @@ body {
 /*Section-Header*/
 .font_default_header {
     font-family: 'Bebas Neue', cursive;
-    font-size: 27px;
+    font-size: 24px;
     color: whitesmoke;
 }
-
 .font_default_a_header {
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
@@ -38,22 +36,22 @@ body {
     font-family: 'Bebas Neue', cursive;
     font-size: 2.8em;
 }
-
 .font_title_home {
     font-family: 'Bebas Neue', cursive;
     color: whitesmoke;
     font-size: 4em;
     margin-bottom: 0px;
 }
-
-.font_default {
-    font-family: 'Bebas Neue', cursive;
-}
-
 .font_default_black {
     font-family: 'Bebas Neue', cursive;
     color: #343a40;
 }
+.font_default_score_black {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    color: #343a40;
+}
+
 /*Section HomePage*/
 .bg_img {
     background-image: url("../imgs/banner-baskalarte.jpg");
@@ -62,47 +60,3 @@ body {
     background-size: cover;
     height: 100%;
 }
-
-.bg_img_user_list {
-    background-image: url("../imgs/banner-baskalarte.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 75%;
-}
-
-
-/*a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}*/
